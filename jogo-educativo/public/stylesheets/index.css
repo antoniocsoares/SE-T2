@@ -9,7 +9,8 @@ div {
     position:relative;
 }
 #content {
-    width: 80%;
+    max-width: 800px;
+    min-width: 376px;
     margin:0 auto;
 }
 #top-bar {
@@ -30,7 +31,7 @@ div {
     margin: auto;
 }
 #bottom-btn-container {
-    width: 375px;
+    max-width: 375px;
     height: 30px;
     margin: 25px auto;
 }
