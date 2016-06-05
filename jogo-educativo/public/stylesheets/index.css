@@ -42,6 +42,7 @@ button{
     background-color: #a7b7ac;
     border: none ;
     text-transform: uppercase;
+    cursor:pointer;
 }
 #bottom-left-btn {
     position: absolute;
