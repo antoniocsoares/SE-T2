@@ -50,11 +50,13 @@ h1 {
     width: 80%;
     padding: 100px 40px 100px 100px;
 }
-.jogo-area p {
+#jogos-area p {
     text-align: center;
     color:  #371009;
-    font-size: 18pt;
+    font-size: 14pt;
     text-transform: uppercase;
+    font-weight: bold;
+    margin-left:50%;
 }
 .jogo-block {
     display: block;
@@ -86,11 +88,23 @@ h1 {
     top: 80px;
     left: 437px;
 }
-.disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
+
+#bottom-image {
+    position:absolute;
+    top: -105px;
+    left: 175px;
 }
-p {
-   font-size: 9pt;
+.footer p {
+    position:relative;
+    padding-left:340px;
+    font-size: 9pt;
     text-align: center;
+}
+@media screen and (max-width: 860px) {
+    #bottom-image {
+        left: 10px;
+    }
+    .footer p {
+        padding-left:185px;
+    }
 }
