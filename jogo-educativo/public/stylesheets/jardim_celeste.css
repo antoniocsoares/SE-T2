@@ -1,6 +1,6 @@
 body {
     margin:0;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12pt;
     color: #371009;
     background: url("../images/fundo.png") repeat ;
@@ -43,31 +43,53 @@ h1 {
     font-size: 36pt;
     text-transform: uppercase;
 }
-#jogos-logos {
+#jogos-area {
     display:block;
     margin: auto;
     text-align: center;
     width: 80%;
     padding: 100px 40px 100px 100px;
 }
-.jogo-block {
-    display: inline-block;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    width: 200px;
-    cursor:pointer;
-}
-.jogo-block p {
+.jogo-area p {
     text-align: center;
     color:  #371009;
     font-size: 18pt;
     text-transform: uppercase;
 }
+.jogo-block {
+    display: block;
+    position:relative;
+    margin: auto;
+    width:520px;
+    height: 381px;
+}
+.click-area {
+    position: absolute;
+    top:0;
+    left:0;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+}
+#question1
+{
+    top: 223px;
+    left: 216px;
+}
+#question2
+{
+    top: 15px;
+    left: 282px;
+}
+#question3
+{
+    top: 80px;
+    left: 437px;
+}
 .disabled {
     opacity: 0.4;
-    cursor: not-allowedgit ;
+    cursor: not-allowed;
 }
-
 p {
    font-size: 9pt;
     text-align: center;

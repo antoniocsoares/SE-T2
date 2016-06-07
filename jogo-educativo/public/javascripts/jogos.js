@@ -7,6 +7,6 @@ $( document ).ready(function() {
         document.location.href="/";
     });
     $('#jardim-block').click(function () {
-        document.location.href="/jogos/jardim-celeste";
+        document.location.href="/jardim-celeste";
     });
 });

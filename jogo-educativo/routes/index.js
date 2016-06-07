@@ -11,8 +11,8 @@ router.get('/jogos', function(req, res) {
 router.get('/crachas', function(req, res) {
   //res.render('crachas.html');
 });
-router.get('/jogos/jardim-celeste', function(req, res) {
-    res.render('jogos/jardim_celeste.html');
+router.get('/jardim-celeste', function(req, res) {
+    res.render('jardim-celeste.html');
 });
 
 module.exports = router;
