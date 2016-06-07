@@ -1,6 +1,6 @@
 body {
     margin:0;
-    font-family: Arial;
+    font-family: Arial, serif;
     font-size: 12pt;
     color: #371009;
     background: url("../images/fundo.png") repeat ;
@@ -65,7 +65,7 @@ h1 {
 }
 .disabled {
     opacity: 0.4;
-    cursor: not-allowedgit ;
+    cursor: not-allowed;
 }
 
 p {
