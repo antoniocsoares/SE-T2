@@ -1,0 +1,95 @@
+body {
+    margin:0;
+    font-family: Arial;
+    font-size: 12pt;
+    color: #371009;
+    background: url("../images/fundo.png") repeat ;
+}
+div {
+    display:block;
+    position:relative;
+}
+#content {
+    min-width: 376px;
+    margin:20px 0;
+}
+#top-bar {
+    height: 54px;
+    max-width: 800px;
+    min-width: 376px;
+    margin: 0 auto;
+}
+#right-menu {
+    float:right;
+}
+#left-menu {
+    float:left;
+    cursor:pointer;
+}
+.top-btn {
+    margin-left: 10px;
+    cursor:pointer;
+}
+#middle-content {
+    display:block;
+    width:100%;
+    margin-bottom: 40px;
+    background-color:  #b0e4ea;
+}
+h1 {
+    margin: 0 auto;
+    text-align: center;
+    color:  #371009;
+    font-size: 36pt;
+    text-transform: uppercase;
+}
+#crachas-logos {
+    display:block;
+    margin: auto;
+    text-align: center;
+    width: 80%;
+    padding: 100px 40px 0px 100px;
+}
+.crachas-block {
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 200px;
+}
+.crachas-block p {
+    text-align: center;
+    color:  #371009;
+    font-size: 18pt;
+    text-transform: uppercase;
+}
+.disabled {
+    opacity: 0.4;
+}
+
+#crachas-frases {
+    display:block;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+#crachas-frases p {
+    font-size:14pt;
+}
+
+#crachas-leaderboard {
+    display:block;
+    position:relative;
+    width:30%;
+    margin: 0 auto;
+    padding-bottom: 30px;
+}
+
+#table td, #table th {
+    text-align:center;
+}
+
+p {
+    font-size: 9pt;
+    text-align: center;
+}
