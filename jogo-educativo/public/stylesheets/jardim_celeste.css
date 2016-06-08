@@ -110,7 +110,14 @@ h1 {
 #question-finish-btn {
     width: 28px;
     height: 28px;
-    background: url("../images/validar_resposta.png");
+    background: url("../images/validar_resposta.png") no-repeat center;
+
+}
+#scroll-up {
+    width: 28px;
+    height: 28px;
+    background: url("../images/scrollup.png")  no-repeat center;
+    background-size: 100%;
 }
 #question-close-btn {
     width: 28px;
@@ -131,7 +138,7 @@ h1 {
 .modal-body .question-group label {
      padding-left: 5px;
 }
-.modal-body .question-group .correct::after {
+.modal-body.show-answers .question-group .correct::after {
     content: "<";
     color: #6cad7e;
 }

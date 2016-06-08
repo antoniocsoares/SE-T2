@@ -27,12 +27,34 @@ $( document ).ready(function() {
     });
     $("#question-finish-btn").click(function () {
         checkValidQuestions();
-
     });
+    $("#scroll-up").click(function () {
+        $('#questionsModal').animate({
+            scrollTop: $("#question-finish-btn").offset().top
+        }, 2000);
+    });
+
     $('#questionsModal').on('shown.bs.modal', function (e) {
         $.get("http://localhost:3000/perguntas/default", function(data, status){
             console.log("perguntas data is: ", data);
-
+            // teste
+            /*data = {
+                hash:'default',
+                    jardim:
+                [
+                    {pergunta:'Pergunta 1?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 2?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 3?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 4?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 5?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 6?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 7?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 8?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 9?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+                    {pergunta:'Pergunta 10?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']}
+                ]
+            };*/
+            //
             var timer = 180;
             $('#countdown').text(timer);
 
@@ -58,7 +80,7 @@ $( document ).ready(function() {
                     if(j === certaIndex)
                     {
                         var awDiv1 = document.createElement("div");
-                        awDiv1.setAttribute("class", "answer-box");
+                        awDiv1.setAttribute("class", "answer-box correct");
                         var aw1 = document.createElement("input");
                         aw1.setAttribute("type", "radio");
                         aw1.setAttribute("name", "answer-"+i);
@@ -88,7 +110,7 @@ $( document ).ready(function() {
                     {
 
                         var awDiv1 = document.createElement("div");
-                        awDiv1.setAttribute("class", "answer-box");
+                        awDiv1.setAttribute("class", "answer-box correct");
                         var aw1 = document.createElement("input");
                         aw1.setAttribute("type", "radio");
                         aw1.setAttribute("name", "answer-"+i);
@@ -117,6 +139,7 @@ $( document ).ready(function() {
     });
     $("#questionsModal").on('hidden.bs.modal',function (event) {
         clearTimeout(timeout);
+        $('.modal-body').removeClass("show-answers");
         if(sessionStorage.username === undefined)
         {
             var username = prompt("Por favor insere o teu nome para gravar a pontuação.", "anónimo");
@@ -136,14 +159,18 @@ function checkValidQuestions() {
     var countCertas = 0;
     $("input:checked").each(function(index)
     {
-        if($(this).val() == 'certo')
+        if($(this).val() === 'certo')
             countCertas++;
     });
+    $('.modal-body').addClass("show-answers");
 
     var points = timeLeft*countCertas;
 
     $('#modal-feedback-message').text("Acertaste em "+countCertas+" de "+$('.question-group').length+" perguntas!");
-    
+    $('#questionsModal').animate({
+        scrollTop: $("#modal-feedback-message").offset().top
+    }, 2000);
     $('#points').text(points);
-    sessionStorage.userpoints = points;
+    if(sessionStorage.userpoints &&  sessionStorage.userpoints > points || sessionStorage.userpoints !== undefined)
+        sessionStorage.userpoints = points;
 }
