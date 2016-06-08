@@ -13,6 +13,10 @@ router.get('/jogos', function(req, res) {
 router.get('/crachas', function(req, res) {
   res.render('crachas.html');
 });
+router.get('/jardim-celeste', function(req, res) {
+    res.render('jardim-celeste.html');
+});
+
 router.get('/utilizador/:name', function (req, res) {
     console.log("VOU CHAMAR O NOME! ",req.params.name);
     //res.contentType('json');
@@ -45,10 +49,6 @@ router.get('/pergunta/:hash', function (req, res) {
     console.log("VOU CHAMAR A HASH! ",req.params.hash);
     res.contentType('json');
     res.send(dbFunctions.GetPerguntaByHash(req.params.hash));
-});
-
-router.get('/jogos/jardim-celeste', function(req, res) {
-    res.render('jogos/jardim_celeste.html');
 });
 
 module.exports = router;
