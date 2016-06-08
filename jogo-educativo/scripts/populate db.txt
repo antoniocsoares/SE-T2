@@ -1,0 +1,23 @@
+db.utilizadores.insertOne({name:'ANINHA',badges:{jardineiro:true,chocolateiro:false,atleta:false,explorador:false},points:7980});
+db.utilizadores.insertOne({name:'MARQUINHOS',badges:{jardineiro:true,chocolateiro:false,atleta:false,explorador:false},points:1298});
+db.utilizadores.insertOne({name:'AFONSINHO',badges:{jardineiro:true,chocolateiro:false,atleta:false,explorador:false},points:9892});
+db.utilizadores.insertOne({name:'TONINHO',badges:{jardineiro:true,chocolateiro:false,atleta:false,explorador:false},points:5697});
+db.utilizadores.insertOne({name:'PEDRINHO',badges:{jardineiro:true,chocolateiro:false,atleta:false,explorador:false},points:2498});
+
+db.perguntas.insertOne(
+{
+	hash:'default',
+	jardim:
+	[
+		{pergunta:'Pergunta 1?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 2?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 3?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 4?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 5?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 6?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 7?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 8?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 9?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']},
+		{pergunta:'Pergunta 10?', certa:'Certa', erradas:['Errada1','Errada2','Errada3']}
+	]
+});

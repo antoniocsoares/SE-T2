@@ -7,6 +7,10 @@ $( document ).ready(function() {
     $('#logo-image, #home-btn').click(function () {
         document.location.href="/";
     });
+
+    $('#crachasFrase1').text("Ainda não tens nenhum crachá!");
+    $('#crachasFrase2').text("Para os conseguires, responde acertadamente às perguntas de cada jogo! Boa sorte!");
+
     //TODO mudar o nome de pesquisa do user de HARCODED para session name
     $.get("http://localhost:3000/utilizador/diogo", function(data, status){
         console.log("utilizador data is: ", data);
@@ -21,8 +25,8 @@ $( document ).ready(function() {
         {
             console.log("FALSO! NAO SOU UM JARDINEIRO!");
             $('#crachaJardineiro').attr("src","images/jardineiro_badge_branco.png");
-            $('#crachasFrase1').attr("textcontent","");
-            $('#crachasFrase2').attr("textcontent","");
+            $('#crachasFrase1').text("Ainda não tens nenhum crachá!");
+            $('#crachasFrase2').text("Para os conseguires, responde acertadamente às perguntas de cada jogo! Boa sorte!");
         }
     });
     $.get("http://localhost:3000/utilizadores", function(data, status){
@@ -37,4 +41,5 @@ $( document ).ready(function() {
 
         //TODO: get pontuacao from session/storage e injetar na div de pontuacao
     });
+    
 });

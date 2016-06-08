@@ -19,6 +19,7 @@ router.get('/jardim-celeste', function(req, res) {
 
 router.get('/utilizador/:name', function (req, res) {
     console.log("VOU CHAMAR O NOME! ",req.params.name);
+
     //res.contentType('json');
     dbFunctions.GetUserByName(req.params.name)
         .then(function(user)
@@ -45,10 +46,16 @@ router.get('/utilizadores', function (req, res) {
         });
 });
 
-router.get('/pergunta/:hash', function (req, res) {
+router.get('/perguntas/:hash', function (req, res) {
     console.log("VOU CHAMAR A HASH! ",req.params.hash);
-    res.contentType('json');
-    res.send(dbFunctions.GetPerguntaByHash(req.params.hash));
+    dbFunctions.GetPerguntaByHash(req.params.hash)
+        .then(function(perguntas){
+            console.log("perguntas is: ", perguntas);
+            res.send(perguntas);
+        })
+        .catch(function(err){
+            console.log("ERROR: ",err);
+        });
 });
 
 module.exports = router;

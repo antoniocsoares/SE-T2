@@ -1,8 +1,10 @@
 /**
  * Created by antonio on 05/06/2016.
  */
+
+var timeout = null;
+
 $( document ).ready(function() {
-    var timeout = null;
     console.log( "ready!" );
     $("#logo-image, #home-btn").click(function () {
         document.location.href="/";
@@ -23,75 +25,125 @@ $( document ).ready(function() {
         $("#questionsModal").attr("group","3").modal('toggle');
 
     });
-    $('#questionsModal').on('shown.bs.modal', function (e) {
-        var timer = 180;
-        $('#countdown').text(timer);
+    $("#question-finish-btn").click(function () {
+        checkValidQuestions();
 
-        // TODO get questions
-        var groupNumber = $('#countdown').attr("group");
-        var modalBody = $('.modal-body');
-        modalBody.empty();
-        for (var i = 0; i < 10; i++) {
-            var group = document.createElement("div");
-            group.setAttribute("class","question-group");
-            group.setAttribute("id","question-"+i);
-            // question
-            var q = document.createElement("p");
-            q.textContent= "O que é?";
-            group.appendChild(q);
-            // first question
-            var awDiv1 = document.createElement("div");
-            awDiv1.setAttribute("class", "answer-box");
-            var aw1 = document.createElement("input");
-            aw1.setAttribute("type", "radio");
-            aw1.setAttribute("name", "answer-"+i);
-            aw1.setAttribute("value", "certo");
-            var aw1Label = document.createElement("label");
-            aw1Label.textContent = "Certo!";
-            awDiv1.appendChild(aw1);
-            awDiv1.appendChild(aw1Label);
-            group.appendChild(awDiv1);
-            // 2nd
-            var awDiv2 = document.createElement("div");
-            awDiv2.setAttribute("class", "answer-box");
-            var aw2 = document.createElement("input");
-            aw2.setAttribute("type", "radio");
-            aw2.setAttribute("name", "answer-"+i);
-            aw2.setAttribute("value", "errado");
-            var aw2Label = document.createElement("label");
-            aw2Label.textContent = "Errado!";
-            awDiv2.appendChild(aw2);
-            awDiv2.appendChild(aw2Label);
-            group.appendChild(awDiv2);
-            // 3rd
-            var awDiv3 = document.createElement("div");
-            awDiv3.setAttribute("class", "answer-box");
-            var aw3 = document.createElement("input");
-            aw3.setAttribute("type", "radio");
-            aw3.setAttribute("name", "answer-"+i);
-            aw3.setAttribute("value", "errado");
-            var aw3Label = document.createElement("label");
-            aw3Label.textContent = "Errado!";
-            awDiv3.appendChild(aw3);
-            awDiv3.appendChild(aw3Label);
-            group.appendChild(awDiv3);
-            modalBody.append(group);
-        }
-        timeout = setInterval(function () {
-            if(timer > 0)
-                timer -= 1;
+    });
+    $('#questionsModal').on('shown.bs.modal', function (e) {
+        $.get("http://localhost:3000/perguntas/default", function(data, status){
+            console.log("perguntas data is: ", data);
+
+            var timer = 180;
             $('#countdown').text(timer);
-            if(timer === 0){
-                checkValidQuestions(groupNumber);
-                clearTimeout(timeout);
+
+            // TODO get questions
+            var groupNumber = $('#countdown').attr("group");
+            var modalBody = $('.modal-body');
+            modalBody.empty();
+            for (var i = 0; i < data.jardim.length; i++) {
+                var perg = data.jardim[i];
+                var group = document.createElement("div");
+                group.setAttribute("class","question-group");
+                group.setAttribute("id","question-"+i);
+                // question
+                var q = document.createElement("p");
+                q.textContent= perg.pergunta;
+                group.appendChild(q);
+                // first question
+
+                var certaIndex =  Math.floor(Math.random() * (perg.erradas.length+1));
+                console.log("INDEX DA CORRETA: ",certaIndex);
+                for (var j = 0; j < perg.erradas.length; j++)
+                {
+                    if(j === certaIndex)
+                    {
+                        var awDiv1 = document.createElement("div");
+                        awDiv1.setAttribute("class", "answer-box");
+                        var aw1 = document.createElement("input");
+                        aw1.setAttribute("type", "radio");
+                        aw1.setAttribute("name", "answer-"+i);
+                        aw1.setAttribute("value", "certo");
+                        var aw1Label = document.createElement("label");
+                        aw1Label.textContent = perg.certa;
+                        awDiv1.appendChild(aw1);
+                        awDiv1.appendChild(aw1Label);
+                        group.appendChild(awDiv1);
+
+
+                    }
+
+                    var awDiv2 = document.createElement("div");
+                    awDiv2.setAttribute("class", "answer-box");
+                    var aw2 = document.createElement("input");
+                    aw2.setAttribute("type", "radio");
+                    aw2.setAttribute("name", "answer-"+i);
+                    aw2.setAttribute("value", "errado");
+                    var aw2Label = document.createElement("label");
+                    aw2Label.textContent = perg.erradas[j];
+                    awDiv2.appendChild(aw2);
+                    awDiv2.appendChild(aw2Label);
+                    group.appendChild(awDiv2);
+
+                    if(certaIndex >= perg.erradas.length && j == (perg.erradas.length-1))
+                    {
+
+                        var awDiv1 = document.createElement("div");
+                        awDiv1.setAttribute("class", "answer-box");
+                        var aw1 = document.createElement("input");
+                        aw1.setAttribute("type", "radio");
+                        aw1.setAttribute("name", "answer-"+i);
+                        aw1.setAttribute("value", "certo");
+                        var aw1Label = document.createElement("label");
+                        aw1Label.textContent = perg.certa;
+                        awDiv1.appendChild(aw1);
+                        awDiv1.appendChild(aw1Label);
+                        group.appendChild(awDiv1);
+                    }
+
+                }
+                modalBody.append(group);
             }
-        },1000);
+            timeout = setInterval(function () {
+                if(timer > 0)
+                    timer -= 1;
+                $('#countdown').text(timer);
+                if(timer === 0){
+                    checkValidQuestions(groupNumber);
+                    clearTimeout(timeout);
+                }
+            },1000);
+
+        });
     });
     $("#questionsModal").on('hidden.bs.modal',function (event) {
         clearTimeout(timeout);
+        if(sessionStorage.username === undefined)
+        {
+            var username = prompt("Por favor insere o teu nome para gravar a pontuação.", "anónimo");
+
+            if(username != null) {
+                sessionStorage.username = username;
+            }
+        }
     });
 
 });
 function checkValidQuestions() {
+    clearTimeout(timeout);
+    
+    var timeLeft = $('#countdown').text();
+    
+    var countCertas = 0;
+    $("input:checked").each(function(index)
+    {
+        if($(this).val() == 'certo')
+            countCertas++;
+    });
 
+    var points = timeLeft*countCertas;
+
+    $('#modal-feedback-message').text("Acertaste em "+countCertas+" de "+$('.question-group').length+" perguntas!");
+    
+    $('#points').text(points);
+    sessionStorage.userpoints = points;
 }
