@@ -2,19 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cb83d3ff-89c2-439a-8661-8336a40bf316" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/model/questions.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/model/users.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/public/javascripts/crachas.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/public/stylesheets/crachas.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/public/stylesheets/table.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/scripts/dbConnector.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/views/crachas.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/views/error.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/jogo-educativo/views/leaderboard.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/jogo-educativo/views/leaderboard.html" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jogo-educativo/.gitignore" afterPath="$PROJECT_DIR$/jogo-educativo/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jogo-educativo/app.js" afterPath="$PROJECT_DIR$/jogo-educativo/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jogo-educativo/package.json" afterPath="$PROJECT_DIR$/jogo-educativo/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jogo-educativo/routes/index.js" afterPath="$PROJECT_DIR$/jogo-educativo/routes/index.js" />
     </list>
     <ignored path="SE-T2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,11 +27,21 @@
     <splitter split-orientation="horizontal" split-proportion="0.58949625">
       <split-first>
         <leaf>
-          <file leaf-file-name="crachas.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="crachas.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/jogo-educativo/views/crachas.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="438">
                   <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/jogo-educativo/.gitignore">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="391">
+                  <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
                   <folding />
                 </state>
               </provider>
@@ -167,7 +167,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/jogo-educativo/views/leaderboard.html" />
-        <option value="$PROJECT_DIR$/jogo-educativo/.gitignore" />
         <option value="$PROJECT_DIR$/jogo-educativo/package.json" />
         <option value="$PROJECT_DIR$/jogo-educativo/scripts/crachas.js" />
         <option value="$PROJECT_DIR$/jogo-educativo/model/users.js" />
@@ -180,6 +179,7 @@
         <option value="$PROJECT_DIR$/jogo-educativo/scripts/dbConnector.js" />
         <option value="$PROJECT_DIR$/jogo-educativo/views/crachas.html" />
         <option value="$PROJECT_DIR$/jogo-educativo/public/javascripts/crachas.js" />
+        <option value="$PROJECT_DIR$/jogo-educativo/.gitignore" />
       </list>
     </option>
   </component>
@@ -458,12 +458,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1465337443795</updated>
-      <workItem from="1465337445141" duration="16262000" />
+      <workItem from="1465337445141" duration="16372000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16262000" />
+    <option name="totallyTimeSpent" value="16372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -497,14 +497,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/jogo-educativo/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/jogo-educativo/views/leaderboard.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -649,6 +641,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
           <caret line="48" column="27" selection-start-line="48" selection-start-column="27" selection-end-line="48" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/jogo-educativo/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
           <folding />
         </state>
       </provider>
